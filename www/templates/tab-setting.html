@@ -1,0 +1,35 @@
+<ion-view view-title="{{TH_HEADER}}">
+  <ion-content>
+    <div class="list">
+      <div class="item item-divider">
+        <span>ข้อมูลของฉัน</span>
+      </div>
+
+      <a class="item item-icon-left item-icon-right " href="#">
+        <i class="icon ion-ios-person"></i>
+        <span>โปรไฟล์</span>
+        <i class="icon ion-ios-arrow-forward"></i>
+
+      </a>
+      <div class="item item-divider">
+        <span>ประเภท</span>
+      </div>
+      <ion-item class="item-icon-left item-icon-right item-remove-animate" href="#/tab/setting/{{t.TYPE_INOUT}}" ng-repeat="t in TYPE_PARAMS">
+        <i class="icon {{t.ICON_TYPE}}"></i>
+        <span>{{t.TH_NAME}}</span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </ion-item>
+
+      <div class="item item-divider">
+        <span>ฐานข้อมูล</span>
+      </div>
+      <a class="item item-icon-left item-icon-right" href="#">
+        <i class="icon ion-ios-cloud-upload"></i>
+        <span>ส่งออก</span>
+        <i class="icon ion-ios-arrow-forward"></i>
+
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

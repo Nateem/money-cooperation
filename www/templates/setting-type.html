@@ -1,0 +1,27 @@
+<ion-view view-title="{{TH_HEADER}}">
+  <ion-content>
+    <div class="list list-inset">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="txt_search.TITLE">
+        </label>
+        <button type="button" class="button button-small button-positive" ng-click="chkAdd()">
+          <i class="icon ion-ios-plus-outline"></i>
+        </button>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item class="item-remove-animate" ng-repeat="t in typeRepeat | filter:txt_search">
+        <h2>{{t.TITLE}}</h2>
+        <p>{{t.P_COLOR}}</p>
+        <ion-option-button class="button-assertive" ng-click="chkDelete(t.ID,t.TITLE)">
+           <span><i class="icon ion-ios-trash"></i> ลบ</span>
+        </ion-option-button>
+        <ion-option-button class="button-balanced" ng-click="chkEdit(t.ID,t.TITLE)">
+          <span><i class="icon ion-ios-compose-outline"></i> แก้ไข</span>
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,57 @@
+<ion-view view-title="{{TH_HEADER}}">
+  <ion-content>
+    <form name="formMoneyIn" ng-submit="submitFormIn(formMoneyIn,form.TYPE_ID,form.VALUE,form.NOTE,form.CUR_DATE,form.CUR_TIME)">
+    <div class="list" >
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper item-select">
+          <span class="input-label">ประเภท</span>
+          <select name="mType" ng-model="form.TYPE_ID" required>
+            <option value="" selected>-- เลือกประเภท --</option>
+            <option ng-value="t.ID" ng-repeat="t in typeRepeat">{{t.TITLE}}</option>
+          </select>
+        </label>
+        <button class="button button-small button-positive" ng-click="addSelectPop()">
+          <i class="icon ion-ios-plus-outline"></i>
+        </button>
+      </div>
+      <div class="item" ng-show="formMoneyIn.mType.$dirty && formMoneyIn.mType.$error.required">
+        <span class="assertive">**ต้องเลือกประเภทก่อน</span>
+      </div>
+      <div class="item item-input-inset">
+        <span class="input-label">{{TH_HEADER}}(บาท)</span>
+        <input type="number" name="mValue"  placeholder="มูลค่า" ng-model="form.VALUE" required>
+      </div>
+      <div class="item" ng-show="formMoneyIn.mValue.$dirty && formMoneyIn.mValue.$error.required">
+        <span class="assertive">**จำเป็นต้องกรอก{{TH_HEADER}}</span>
+      </div>
+      <div class="item item-input-inset">
+        <span class="input-label">รายละเอียด</span>
+        <textarea placeholder="หมายเหตุ" name="mNote" ng-model="form.NOTE" rows="3"></textarea>
+      </div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <span class="input-label">วันที่</span>
+          <input type="date" name="mCurdate" ng-model="form.CUR_DATE" placeholder="วันที่" readonly required>
+        </label>
+
+        <button type="button" ng-click="showDatePick();" class="button button-small  button-positive">
+          <i class="icon ion-ios-calendar-outline"></i>
+        </button>
+      </div>
+      <div class="item" ng-show="formMoneyIn.mCurdate.$dirty && formMoneyIn.mCurdate.$error.required">
+        <span class="assertive">**จำเป็นต้องเลือกวันที่</span>
+      </div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <span class="input-label">เวลา</span>
+          <input type="time" name="mCurtime" ng-model="form.CUR_TIME" placeholder="เวลา" readonly>
+        </label>
+        <button type="button" ng-click="showTimePick();" class="button button-small  button-positive">
+          <i class="icon ion-ios-time-outline"></i>
+        </button>
+      </div>
+    </div>
+    <button type="submit" ng-disabled="formMoneyIn.$invalid" class="button button-block button-assertive">ตกลง</button>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+@mixin border-radius($val){
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  border-radius: $val ;
+}
+@mixin border($px,$type,$color){
+  border:$px $type $color;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+form .item-input-inset{
+  transition:all linear 0.5s;
+  background: transparent;
+}
+form .item-input-inset .ng-invalid.ng-dirty {
+  @include border(1px,solid,$assertive);
+  @include border-radius(5px);
+  //background: $assertive;
+}
+form .item-input-inset .ng-valid.ng-dirty{
+  @include border(1px,solid,$balanced);
+  @include border-radius(5px);
+  //background: $balanced;
+}

@@ -1,0 +1,28 @@
+<ion-view view-title="{{TH_HEADER}}" >
+  <ion-content>
+    <div class="list" ng-repeat="r in reportRepeat">
+      <div class="item item-divider" >
+        <h2>{{r.TITLE}}</h2>
+        
+      </div>
+      <div class="item">
+        <p>{{r.VALUE}}</p>
+        <p>{{r.NOTE}}</p>
+        <p>{{r.CUR_DATE}}</p>
+      </div>
+      <a class="item button button-block" ng-click="deleteItem(r.ID)">
+        DELETE
+      </a>
+
+      
+    </div>
+    <div class="list">
+      <div class="item">
+        <button type="button" class="button button-block button-energized" ng-click="reload()"> Reload</button>
+      </div>
+      <div class="item">
+        <textarea cols="30" rows="10">{{reportRepeat}}</textarea>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
